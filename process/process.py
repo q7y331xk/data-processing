@@ -1,6 +1,7 @@
 from rds.rds import write
 from search_data.colors import COLORS
 from search_data.locations import DIVS, GUS
+from search_data.status import BUYS
 from search_func.match_str import match_keywords
 from search_func.match_title_main import match_title_main
 
@@ -23,6 +24,10 @@ def process_datum(selling):
         gu = match_title_main(processed_selling, GUS, default)
 
     color = match_title_main(processed_selling, COLORS, default)
+
+    buy = match_title_main(processed_selling, BUYS, default)
+    if buy != default:
+        processed_selling[4] = '구매'
 
     processed_selling.append(div)
     processed_selling.append(gu)
