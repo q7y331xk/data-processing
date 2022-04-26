@@ -1,3 +1,4 @@
+from cmath import log
 from config import RDS_HOST, RDS_USER_NAME, RDS_USER_PW, RDS_DB
 import pymysql
 
@@ -43,6 +44,7 @@ def create_table_if_exists_drop(table):
 def write(table, selling):
     conn = conn_db()
     cursor = conn.cursor()
+    print(selling)
     cursor.execute(f"INSERT INTO {table} VALUES(\
         \"{selling[0]}\",\
         \"{selling[1]}\",\
@@ -64,4 +66,5 @@ def write(table, selling):
         \"{selling[17]}\",\
         \"{selling[18]}\"\
     )")
+    print('done')
     conn.commit()

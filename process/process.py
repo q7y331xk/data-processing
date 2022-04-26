@@ -33,6 +33,7 @@ def process_datum(selling):
     if buy != default:
         processed_selling[4] = '구매'
 
+    processed_selling[1] = processed_selling[1].replace('\\', ' ')
     processed_selling.append(div)
     processed_selling.append(gu)
     processed_selling.append(color)
